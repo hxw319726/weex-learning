@@ -57,3 +57,35 @@
 /demo1/android/playground/app/gradle/wrapper/gradle-wrapper.jar
 /demo1/android/playground/app/gradle/wrapper/gradle-wrapper.properties
 #---------------------------------------------------------------------------------------------
+#----------------------------------demo2---------------------------------------
+# Created by IDE
+/demo2/.idea/
+/demo2/*.iml
+/demo2/.DS_Store
+/demo2/*.sublime-workspace
+
+# Created by Builder
+/demo2/coverage
+/demo2/dist
+
+# Node
+/demo2/logs
+/demo2/*.log
+/demo2/npm-debug.log*
+/demo2/node_modules
+/demo2/android
+/demo2/dist
+/demo2/ios
+/demo2/.npm
+
+# Runtime data
+/demo2/pids
+/demo2/*.pid
+/demo2/*.seed
+
+# Android
+/demo2/android/playground/app/gradlew
+/demo2/android/playground/app/gradlew.bat
+/demo2/android/playground/app/gradle/wrapper/gradle-wrapper.jar
+/demo2/android/playground/app/gradle/wrapper/gradle-wrapper.properties
+#---------------------------------------------------------------------------------------------
