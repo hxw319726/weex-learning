@@ -1,31 +1,40 @@
 // import Vue from 'vue'
 import Router from 'vue-router'
-import TodosView from './views/TodosView.vue'
+// import TodosView from './views/TodosView.vue'
+import CounterView from './views/Counter.vue'
+import CounterSView from './views/CounterSView.vue'
+import Hello from './views/Hello.vue'
+
+
 
 Vue.use(Router)
 
 // Story view factory
-function createStoriesView (type) {
-  return {
-    name: `${type}-stories-view`,
-    render (createElement) {
-      return createElement(StoriesView, { props: { type }})
-    }
-  }
-}
+// function createStoriesView (type) {
+//   return {
+//     name: `${type}-stories-view`,
+//     render (createElement) {
+//       return createElement(StoriesView, { props: { type }})
+//     }
+//   }
+// }
 
 export default new Router({
   // mode: 'abstract',
   routes: [
-    {
-      path: '/todos',
-      component: {
-        name: 'todos-view',
-        render (createElement) {
-          return createElement(TodosView)
-        }
-      }
-    },
-    { path: '/', redirect: '/todos' }
+    // {
+    //   path: '/todos',
+    //   component: {
+    //     name: 'todos-view',
+    //     render (createElement) {
+    //       return createElement(TodosView)
+    //     }
+    //   }
+    // },
+    // { path: '/', redirect: '/todos' }
+    { path: '/counter', component: CounterView },
+    { path: '/counters', component: CounterSView },
+    { path: '/hello', component: Hello },
+    { path: '/', redirect: '/hello' }
   ]
 })

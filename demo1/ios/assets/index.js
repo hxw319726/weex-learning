@@ -44,7 +44,7 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -56,17 +56,17 @@
 
 	var _router2 = _interopRequireDefault(_router);
 
-	var _store = __webpack_require__(19);
+	var _store = __webpack_require__(13);
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _vuexRouterSync = __webpack_require__(26);
+	var _vuexRouterSync = __webpack_require__(20);
 
-	var _filters = __webpack_require__(27);
+	var _filters = __webpack_require__(21);
 
 	var filters = _interopRequireWildcard(_filters);
 
-	var _mixins = __webpack_require__(28);
+	var _mixins = __webpack_require__(22);
 
 	var _mixins2 = _interopRequireDefault(_mixins);
 
@@ -94,9 +94,9 @@
 
 	_router2.default.push('/');
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = []
@@ -117,28 +117,36 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/Volumes/MacOSXExt/Users/tiagoalves/Projects/weex/weex-todo-list/src/App.vue"
+	__vue_options__.__file = "D:\\work\\weex-learning\\demo1\\src\\App.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 	__vue_options__.style = __vue_options__.style || {}
 	__vue_styles__.forEach(function (module) {
-	for (var name in module) {
-	__vue_options__.style[name] = module[name]
-	}
+	  for (var name in module) {
+	    __vue_options__.style[name] = module[name]
+	  }
 	})
+	if (typeof __register_static_styles__ === "function") {
+	  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+	}
 
 	module.exports = __vue_exports__
 
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	//
+	//
+	//
+	//
+	//
 	//
 	//
 	//
@@ -154,16 +162,28 @@
 	  }
 	};
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('div', {
 	    on: {
 	      "androidback": _vm.back
 	    }
-	  }, [_c('router-view', {
+	  }, [_c('p', [_c('router-link', {
+	    attrs: {
+	      "to": "/counters"
+	    }
+	  }, [_vm._v("counters")]), _c('router-link', {
+	    attrs: {
+	      "to": "/counter"
+	    }
+	  }, [_vm._v("counter")]), _c('router-link', {
+	    attrs: {
+	      "to": "/hello"
+	    }
+	  }, [_vm._v("hello")])], 1), _c('router-view', {
 	    staticStyle: {
 	      flex: "1"
 	    }
@@ -171,9 +191,9 @@
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -185,9 +205,17 @@
 
 	var _vueRouter2 = _interopRequireDefault(_vueRouter);
 
-	var _TodosView = __webpack_require__(7);
+	var _Counter = __webpack_require__(7);
 
-	var _TodosView2 = _interopRequireDefault(_TodosView);
+	var _Counter2 = _interopRequireDefault(_Counter);
+
+	var _CounterSView = __webpack_require__(9);
+
+	var _CounterSView2 = _interopRequireDefault(_CounterSView);
+
+	var _Hello = __webpack_require__(11);
+
+	var _Hello2 = _interopRequireDefault(_Hello);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -195,34 +223,38 @@
 	Vue.use(_vueRouter2.default);
 
 	// Story view factory
-	function createStoriesView(type) {
-	  return {
-	    name: type + '-stories-view',
-	    render: function render(createElement) {
-	      return createElement(StoriesView, { props: { type: type } });
-	    }
-	  };
-	}
+	// function createStoriesView (type) {
+	//   return {
+	//     name: `${type}-stories-view`,
+	//     render (createElement) {
+	//       return createElement(StoriesView, { props: { type }})
+	//     }
+	//   }
+	// }
 
+	// import TodosView from './views/TodosView.vue'
 	exports.default = new _vueRouter2.default({
 	  // mode: 'abstract',
-	  routes: [{
-	    path: '/todos',
-	    component: {
-	      name: 'todos-view',
-	      render: function render(createElement) {
-	        return createElement(_TodosView2.default);
-	      }
-	    }
-	  }, { path: '/', redirect: '/todos' }]
+	  routes: [
+	  // {
+	  //   path: '/todos',
+	  //   component: {
+	  //     name: 'todos-view',
+	  //     render (createElement) {
+	  //       return createElement(TodosView)
+	  //     }
+	  //   }
+	  // },
+	  // { path: '/', redirect: '/todos' }
+	  { path: '/counter', component: _Counter2.default }, { path: '/counters', component: _CounterSView2.default }, { path: '/hello', component: _Hello2.default }, { path: '/', redirect: '/hello' }]
 	});
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
-	  * vue-router v2.2.1
+	  * vue-router v2.6.0
 	  * (c) 2017 Evan You
 	  * @license MIT
 	  */
@@ -237,7 +269,7 @@
 	}
 
 	function warn (condition, message) {
-	  if (!condition) {
+	  if (process.env.NODE_ENV !== 'production' && !condition) {
 	    typeof console !== 'undefined' && console.warn(("[vue-router] " + message));
 	  }
 	}
@@ -251,7 +283,7 @@
 	      default: 'default'
 	    }
 	  },
-	  render: function render (h, ref) {
+	  render: function render (_, ref) {
 	    var props = ref.props;
 	    var children = ref.children;
 	    var parent = ref.parent;
@@ -259,6 +291,9 @@
 
 	    data.routerView = true;
 
+	    // directly use parent context's createElement() function
+	    // so that components rendered by router-view can resolve named slots
+	    var h = parent.$createElement;
 	    var name = props.name;
 	    var route = parent.$route;
 	    var cache = parent._routerViewCache || (parent._routerViewCache = {});
@@ -267,7 +302,7 @@
 	    // has been toggled inactive but kept-alive.
 	    var depth = 0;
 	    var inactive = false;
-	    while (parent) {
+	    while (parent && parent._routerRoot !== parent) {
 	      if (parent.$vnode && parent.$vnode.data.routerView) {
 	        depth++;
 	      }
@@ -292,18 +327,23 @@
 
 	    var component = cache[name] = matched.components[name];
 
-	    // inject instance registration hooks
-	    var hooks = data.hook || (data.hook = {});
-	    hooks.init = function (vnode) {
-	      matched.instances[name] = vnode.child;
-	    };
-	    hooks.prepatch = function (oldVnode, vnode) {
-	      matched.instances[name] = vnode.child;
-	    };
-	    hooks.destroy = function (vnode) {
-	      if (matched.instances[name] === vnode.child) {
-	        matched.instances[name] = undefined;
+	    // attach instance registration hook
+	    // this will be called in the instance's injected lifecycle hooks
+	    data.registerRouteInstance = function (vm, val) {
+	      // val could be undefined for unregistration
+	      var current = matched.instances[name];
+	      if (
+	        (val && current !== vm) ||
+	        (!val && current === vm)
+	      ) {
+	        matched.instances[name] = val;
 	      }
+	    }
+
+	    // also regiseter instance in prepatch hook
+	    // in case the same component instance is reused across different routes
+	    ;(data.hook || (data.hook = {})).prepatch = function (_, vnode) {
+	      matched.instances[name] = vnode.componentInstance;
 	    };
 
 	    // resolve props
@@ -324,7 +364,13 @@
 	    case 'boolean':
 	      return config ? route.params : undefined
 	    default:
-	      warn(false, ("props in \"" + (route.path) + "\" is a " + (typeof config) + ", expecting an object, function or boolean."));
+	      if (process.env.NODE_ENV !== 'production') {
+	        warn(
+	          false,
+	          "props in \"" + (route.path) + "\" is a " + (typeof config) + ", " +
+	          "expecting an object, function or boolean."
+	        );
+	      }
 	  }
 	}
 
@@ -334,7 +380,7 @@
 	var encodeReserveReplacer = function (c) { return '%' + c.charCodeAt(0).toString(16); };
 	var commaRE = /%2C/g;
 
-	// fixed encodeURIComponent which is more comformant to RFC3986:
+	// fixed encodeURIComponent which is more conformant to RFC3986:
 	// - escapes [!'()*]
 	// - preserve commas
 	var encode = function (str) { return encodeURIComponent(str)
@@ -345,25 +391,24 @@
 
 	function resolveQuery (
 	  query,
-	  extraQuery
+	  extraQuery,
+	  _parseQuery
 	) {
 	  if ( extraQuery === void 0 ) extraQuery = {};
 
-	  if (query) {
-	    var parsedQuery;
-	    try {
-	      parsedQuery = parseQuery(query);
-	    } catch (e) {
-	      process.env.NODE_ENV !== 'production' && warn(false, e.message);
-	      parsedQuery = {};
-	    }
-	    for (var key in extraQuery) {
-	      parsedQuery[key] = extraQuery[key];
-	    }
-	    return parsedQuery
-	  } else {
-	    return extraQuery
+	  var parse = _parseQuery || parseQuery;
+	  var parsedQuery;
+	  try {
+	    parsedQuery = parse(query || '');
+	  } catch (e) {
+	    process.env.NODE_ENV !== 'production' && warn(false, e.message);
+	    parsedQuery = {};
 	  }
+	  for (var key in extraQuery) {
+	    var val = extraQuery[key];
+	    parsedQuery[key] = Array.isArray(val) ? val.slice() : val;
+	  }
+	  return parsedQuery
 	}
 
 	function parseQuery (query) {
@@ -408,7 +453,7 @@
 
 	    if (Array.isArray(val)) {
 	      var result = [];
-	      val.slice().forEach(function (val2) {
+	      val.forEach(function (val2) {
 	        if (val2 === undefined) {
 	          return
 	        }
@@ -428,13 +473,16 @@
 
 	/*  */
 
+
 	var trailingSlashRE = /\/?$/;
 
 	function createRoute (
 	  record,
 	  location,
-	  redirectedFrom
+	  redirectedFrom,
+	  router
 	) {
+	  var stringifyQuery$$1 = router && router.options.stringifyQuery;
 	  var route = {
 	    name: location.name || (record && record.name),
 	    meta: (record && record.meta) || {},
@@ -442,11 +490,11 @@
 	    hash: location.hash || '',
 	    query: location.query || {},
 	    params: location.params || {},
-	    fullPath: getFullPath(location),
+	    fullPath: getFullPath(location, stringifyQuery$$1),
 	    matched: record ? formatMatch(record) : []
 	  };
 	  if (redirectedFrom) {
-	    route.redirectedFrom = getFullPath(redirectedFrom);
+	    route.redirectedFrom = getFullPath(redirectedFrom, stringifyQuery$$1);
 	  }
 	  return Object.freeze(route)
 	}
@@ -465,12 +513,16 @@
 	  return res
 	}
 
-	function getFullPath (ref) {
+	function getFullPath (
+	  ref,
+	  _stringifyQuery
+	) {
 	  var path = ref.path;
 	  var query = ref.query; if ( query === void 0 ) query = {};
 	  var hash = ref.hash; if ( hash === void 0 ) hash = '';
 
-	  return (path || '/') + stringifyQuery(query) + hash
+	  var stringify = _stringifyQuery || stringifyQuery;
+	  return (path || '/') + stringify(query) + hash
 	}
 
 	function isSameRoute (a, b) {
@@ -505,7 +557,15 @@
 	  if (aKeys.length !== bKeys.length) {
 	    return false
 	  }
-	  return aKeys.every(function (key) { return String(a[key]) === String(b[key]); })
+	  return aKeys.every(function (key) {
+	    var aVal = a[key];
+	    var bVal = b[key];
+	    // check nested equality
+	    if (typeof aVal === 'object' && typeof bVal === 'object') {
+	      return isObjectEqual(aVal, bVal)
+	    }
+	    return String(aVal) === String(bVal)
+	  })
 	}
 
 	function isIncludedRoute (current, target) {
@@ -548,6 +608,7 @@
 	    append: Boolean,
 	    replace: Boolean,
 	    activeClass: String,
+	    exactActiveClass: String,
 	    event: {
 	      type: eventTypes,
 	      default: 'click'
@@ -562,11 +623,30 @@
 	    var location = ref.location;
 	    var route = ref.route;
 	    var href = ref.href;
+
 	    var classes = {};
-	    var activeClass = this.activeClass || router.options.linkActiveClass || 'router-link-active';
-	    var compareTarget = location.path ? createRoute(null, location) : route;
+	    var globalActiveClass = router.options.linkActiveClass;
+	    var globalExactActiveClass = router.options.linkExactActiveClass;
+	    // Support global empty active class
+	    var activeClassFallback = globalActiveClass == null
+	            ? 'router-link-active'
+	            : globalActiveClass;
+	    var exactActiveClassFallback = globalExactActiveClass == null
+	            ? 'router-link-exact-active'
+	            : globalExactActiveClass;
+	    var activeClass = this.activeClass == null
+	            ? activeClassFallback
+	            : this.activeClass;
+	    var exactActiveClass = this.exactActiveClass == null
+	            ? exactActiveClassFallback
+	            : this.exactActiveClass;
+	    var compareTarget = location.path
+	      ? createRoute(null, location, null, router)
+	      : route;
+
+	    classes[exactActiveClass] = isSameRoute(current, compareTarget);
 	    classes[activeClass] = this.exact
-	      ? isSameRoute(current, compareTarget)
+	      ? classes[exactActiveClass]
 	      : isIncludedRoute(current, compareTarget);
 
 	    var handler = function (e) {
@@ -616,14 +696,14 @@
 
 	function guardEvent (e) {
 	  // don't redirect with control keys
-	  if (e.metaKey || e.ctrlKey || e.shiftKey) { return }
+	  if (e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) { return }
 	  // don't redirect when preventDefault called
 	  if (e.defaultPrevented) { return }
 	  // don't redirect on right click
 	  if (e.button !== undefined && e.button !== 0) { return }
 	  // don't redirect if `target="_blank"`
-	  if (e.target && e.target.getAttribute) {
-	    var target = e.target.getAttribute('target');
+	  if (e.currentTarget && e.currentTarget.getAttribute) {
+	    var target = e.currentTarget.getAttribute('target');
 	    if (/\b_blank\b/i.test(target)) { return }
 	  }
 	  // this may be a Weex event which doesn't have this method
@@ -656,22 +736,38 @@
 
 	  _Vue = Vue;
 
-	  Object.defineProperty(Vue.prototype, '$router', {
-	    get: function get () { return this.$root._router }
-	  });
+	  var isDef = function (v) { return v !== undefined; };
 
-	  Object.defineProperty(Vue.prototype, '$route', {
-	    get: function get () { return this.$root._route }
-	  });
+	  var registerInstance = function (vm, callVal) {
+	    var i = vm.$options._parentVnode;
+	    if (isDef(i) && isDef(i = i.data) && isDef(i = i.registerRouteInstance)) {
+	      i(vm, callVal);
+	    }
+	  };
 
 	  Vue.mixin({
 	    beforeCreate: function beforeCreate () {
-	      if (this.$options.router) {
+	      if (isDef(this.$options.router)) {
+	        this._routerRoot = this;
 	        this._router = this.$options.router;
 	        this._router.init(this);
 	        Vue.util.defineReactive(this, '_route', this._router.history.current);
+	      } else {
+	        this._routerRoot = (this.$parent && this.$parent._routerRoot) || this;
 	      }
+	      registerInstance(this, this);
+	    },
+	    destroyed: function destroyed () {
+	      registerInstance(this);
 	    }
+	  });
+
+	  Object.defineProperty(Vue.prototype, '$router', {
+	    get: function get () { return this._routerRoot._router }
+	  });
+
+	  Object.defineProperty(Vue.prototype, '$route', {
+	    get: function get () { return this._routerRoot._route }
 	  });
 
 	  Vue.component('router-view', View);
@@ -693,11 +789,12 @@
 	  base,
 	  append
 	) {
-	  if (relative.charAt(0) === '/') {
+	  var firstChar = relative.charAt(0);
+	  if (firstChar === '/') {
 	    return relative
 	  }
 
-	  if (relative.charAt(0) === '?' || relative.charAt(0) === '#') {
+	  if (firstChar === '?' || firstChar === '#') {
 	    return base + relative
 	  }
 
@@ -714,11 +811,9 @@
 	  var segments = relative.replace(/^\//, '').split('/');
 	  for (var i = 0; i < segments.length; i++) {
 	    var segment = segments[i];
-	    if (segment === '.') {
-	      continue
-	    } else if (segment === '..') {
+	    if (segment === '..') {
 	      stack.pop();
-	    } else {
+	    } else if (segment !== '.') {
 	      stack.push(segment);
 	    }
 	  }
@@ -758,132 +853,9 @@
 	  return path.replace(/\/\//g, '/')
 	}
 
-	/*  */
-
-	function createRouteMap (
-	  routes,
-	  oldPathMap,
-	  oldNameMap
-	) {
-	  var pathMap = oldPathMap || Object.create(null);
-	  var nameMap = oldNameMap || Object.create(null);
-
-	  routes.forEach(function (route) {
-	    addRouteRecord(pathMap, nameMap, route);
-	  });
-
-	  return {
-	    pathMap: pathMap,
-	    nameMap: nameMap
-	  }
-	}
-
-	function addRouteRecord (
-	  pathMap,
-	  nameMap,
-	  route,
-	  parent,
-	  matchAs
-	) {
-	  var path = route.path;
-	  var name = route.name;
-	  if (process.env.NODE_ENV !== 'production') {
-	    assert(path != null, "\"path\" is required in a route configuration.");
-	    assert(
-	      typeof route.component !== 'string',
-	      "route config \"component\" for path: " + (String(path || name)) + " cannot be a " +
-	      "string id. Use an actual component instead."
-	    );
-	  }
-
-	  var record = {
-	    path: normalizePath(path, parent),
-	    components: route.components || { default: route.component },
-	    instances: {},
-	    name: name,
-	    parent: parent,
-	    matchAs: matchAs,
-	    redirect: route.redirect,
-	    beforeEnter: route.beforeEnter,
-	    meta: route.meta || {},
-	    props: route.props == null
-	      ? {}
-	      : route.components
-	        ? route.props
-	        : { default: route.props }
-	  };
-
-	  if (route.children) {
-	    // Warn if route is named and has a default child route.
-	    // If users navigate to this route by name, the default child will
-	    // not be rendered (GH Issue #629)
-	    if (process.env.NODE_ENV !== 'production') {
-	      if (route.name && route.children.some(function (child) { return /^\/?$/.test(child.path); })) {
-	        warn(
-	          false,
-	          "Named Route '" + (route.name) + "' has a default child route. " +
-	          "When navigating to this named route (:to=\"{name: '" + (route.name) + "'\"), " +
-	          "the default child route will not be rendered. Remove the name from " +
-	          "this route and use the name of the default child route for named " +
-	          "links instead."
-	        );
-	      }
-	    }
-	    route.children.forEach(function (child) {
-	      var childMatchAs = matchAs
-	        ? cleanPath((matchAs + "/" + (child.path)))
-	        : undefined;
-	      addRouteRecord(pathMap, nameMap, child, record, childMatchAs);
-	    });
-	  }
-
-	  if (route.alias !== undefined) {
-	    if (Array.isArray(route.alias)) {
-	      route.alias.forEach(function (alias) {
-	        var aliasRoute = {
-	          path: alias,
-	          children: route.children
-	        };
-	        addRouteRecord(pathMap, nameMap, aliasRoute, parent, record.path);
-	      });
-	    } else {
-	      var aliasRoute = {
-	        path: route.alias,
-	        children: route.children
-	      };
-	      addRouteRecord(pathMap, nameMap, aliasRoute, parent, record.path);
-	    }
-	  }
-
-	  if (!pathMap[record.path]) {
-	    pathMap[record.path] = record;
-	  }
-
-	  if (name) {
-	    if (!nameMap[name]) {
-	      nameMap[name] = record;
-	    } else if (process.env.NODE_ENV !== 'production' && !matchAs) {
-	      warn(
-	        false,
-	        "Duplicate named routes definition: " +
-	        "{ name: \"" + name + "\", path: \"" + (record.path) + "\" }"
-	      );
-	    }
-	  }
-	}
-
-	function normalizePath (path, parent) {
-	  path = path.replace(/\/$/, '');
-	  if (path[0] === '/') { return path }
-	  if (parent == null) { return path }
-	  return cleanPath(((parent.path) + "/" + path))
-	}
-
 	var index$1 = Array.isArray || function (arr) {
 	  return Object.prototype.toString.call(arr) == '[object Array]';
 	};
-
-	var isarray = index$1;
 
 	/**
 	 * Expose `pathToRegexp`.
@@ -1065,7 +1037,7 @@
 	        }
 	      }
 
-	      if (isarray(value)) {
+	      if (index$1(value)) {
 	        if (!token.repeat) {
 	          throw new TypeError('Expected "' + token.name + '" to not repeat, but received `' + JSON.stringify(value) + '`')
 	        }
@@ -1216,7 +1188,7 @@
 	 * @return {!RegExp}
 	 */
 	function tokensToRegExp (tokens, keys, options) {
-	  if (!isarray(keys)) {
+	  if (!index$1(keys)) {
 	    options = /** @type {!Object} */ (keys || options);
 	    keys = [];
 	  }
@@ -1292,7 +1264,7 @@
 	 * @return {!RegExp}
 	 */
 	function pathToRegexp (path, keys, options) {
-	  if (!isarray(keys)) {
+	  if (!index$1(keys)) {
 	    options = /** @type {!Object} */ (keys || options);
 	    keys = [];
 	  }
@@ -1303,7 +1275,7 @@
 	    return regexpToRegexp(path, /** @type {!Array} */ (keys))
 	  }
 
-	  if (isarray(path)) {
+	  if (index$1(path)) {
 	    return arrayToRegexp(/** @type {!Array} */ (path), /** @type {!Array} */ (keys), options)
 	  }
 
@@ -1316,24 +1288,6 @@
 	index.tokensToRegExp = tokensToRegExp_1;
 
 	/*  */
-
-	var regexpCache = Object.create(null);
-
-	function getRouteRegex (path) {
-	  var hit = regexpCache[path];
-	  var keys, regexp;
-
-	  if (hit) {
-	    keys = hit.keys;
-	    regexp = hit.regexp;
-	  } else {
-	    keys = [];
-	    regexp = index(path, keys);
-	    regexpCache[path] = { keys: keys, regexp: regexp };
-	  }
-
-	  return { keys: keys, regexp: regexp }
-	}
 
 	var regexpCompileCache = Object.create(null);
 
@@ -1357,10 +1311,171 @@
 
 	/*  */
 
+	function createRouteMap (
+	  routes,
+	  oldPathList,
+	  oldPathMap,
+	  oldNameMap
+	) {
+	  // the path list is used to control path matching priority
+	  var pathList = oldPathList || [];
+	  var pathMap = oldPathMap || Object.create(null);
+	  var nameMap = oldNameMap || Object.create(null);
+
+	  routes.forEach(function (route) {
+	    addRouteRecord(pathList, pathMap, nameMap, route);
+	  });
+
+	  // ensure wildcard routes are always at the end
+	  for (var i = 0, l = pathList.length; i < l; i++) {
+	    if (pathList[i] === '*') {
+	      pathList.push(pathList.splice(i, 1)[0]);
+	      l--;
+	      i--;
+	    }
+	  }
+
+	  return {
+	    pathList: pathList,
+	    pathMap: pathMap,
+	    nameMap: nameMap
+	  }
+	}
+
+	function addRouteRecord (
+	  pathList,
+	  pathMap,
+	  nameMap,
+	  route,
+	  parent,
+	  matchAs
+	) {
+	  var path = route.path;
+	  var name = route.name;
+	  if (process.env.NODE_ENV !== 'production') {
+	    assert(path != null, "\"path\" is required in a route configuration.");
+	    assert(
+	      typeof route.component !== 'string',
+	      "route config \"component\" for path: " + (String(path || name)) + " cannot be a " +
+	      "string id. Use an actual component instead."
+	    );
+	  }
+
+	  var normalizedPath = normalizePath(path, parent);
+	  var pathToRegexpOptions = route.pathToRegexpOptions || {};
+
+	  if (typeof route.caseSensitive === 'boolean') {
+	    pathToRegexpOptions.sensitive = route.caseSensitive;
+	  }
+
+	  var record = {
+	    path: normalizedPath,
+	    regex: compileRouteRegex(normalizedPath, pathToRegexpOptions),
+	    components: route.components || { default: route.component },
+	    instances: {},
+	    name: name,
+	    parent: parent,
+	    matchAs: matchAs,
+	    redirect: route.redirect,
+	    beforeEnter: route.beforeEnter,
+	    meta: route.meta || {},
+	    props: route.props == null
+	      ? {}
+	      : route.components
+	        ? route.props
+	        : { default: route.props }
+	  };
+
+	  if (route.children) {
+	    // Warn if route is named, does not redirect and has a default child route.
+	    // If users navigate to this route by name, the default child will
+	    // not be rendered (GH Issue #629)
+	    if (process.env.NODE_ENV !== 'production') {
+	      if (route.name && !route.redirect && route.children.some(function (child) { return /^\/?$/.test(child.path); })) {
+	        warn(
+	          false,
+	          "Named Route '" + (route.name) + "' has a default child route. " +
+	          "When navigating to this named route (:to=\"{name: '" + (route.name) + "'\"), " +
+	          "the default child route will not be rendered. Remove the name from " +
+	          "this route and use the name of the default child route for named " +
+	          "links instead."
+	        );
+	      }
+	    }
+	    route.children.forEach(function (child) {
+	      var childMatchAs = matchAs
+	        ? cleanPath((matchAs + "/" + (child.path)))
+	        : undefined;
+	      addRouteRecord(pathList, pathMap, nameMap, child, record, childMatchAs);
+	    });
+	  }
+
+	  if (route.alias !== undefined) {
+	    var aliases = Array.isArray(route.alias)
+	      ? route.alias
+	      : [route.alias];
+
+	    aliases.forEach(function (alias) {
+	      var aliasRoute = {
+	        path: alias,
+	        children: route.children
+	      };
+	      addRouteRecord(
+	        pathList,
+	        pathMap,
+	        nameMap,
+	        aliasRoute,
+	        parent,
+	        record.path || '/' // matchAs
+	      );
+	    });
+	  }
+
+	  if (!pathMap[record.path]) {
+	    pathList.push(record.path);
+	    pathMap[record.path] = record;
+	  }
+
+	  if (name) {
+	    if (!nameMap[name]) {
+	      nameMap[name] = record;
+	    } else if (process.env.NODE_ENV !== 'production' && !matchAs) {
+	      warn(
+	        false,
+	        "Duplicate named routes definition: " +
+	        "{ name: \"" + name + "\", path: \"" + (record.path) + "\" }"
+	      );
+	    }
+	  }
+	}
+
+	function compileRouteRegex (path, pathToRegexpOptions) {
+	  var regex = index(path, [], pathToRegexpOptions);
+	  if (process.env.NODE_ENV !== 'production') {
+	    var keys = {};
+	    regex.keys.forEach(function (key) {
+	      warn(!keys[key.name], ("Duplicate param keys in route with path: \"" + path + "\""));
+	      keys[key.name] = true;
+	    });
+	  }
+	  return regex
+	}
+
+	function normalizePath (path, parent) {
+	  path = path.replace(/\/$/, '');
+	  if (path[0] === '/') { return path }
+	  if (parent == null) { return path }
+	  return cleanPath(((parent.path) + "/" + path))
+	}
+
+	/*  */
+
+
 	function normalizeLocation (
 	  raw,
 	  current,
-	  append
+	  append,
+	  router
 	) {
 	  var next = typeof raw === 'string' ? { path: raw } : raw;
 	  // named target
@@ -1376,7 +1491,7 @@
 	    if (current.name) {
 	      next.name = current.name;
 	      next.params = params;
-	    } else if (current.matched) {
+	    } else if (current.matched.length) {
 	      var rawPath = current.matched[current.matched.length - 1].path;
 	      next.path = fillParams(rawPath, params, ("path " + (current.path)));
 	    } else if (process.env.NODE_ENV !== 'production') {
@@ -1389,8 +1504,14 @@
 	  var basePath = (current && current.path) || '/';
 	  var path = parsedPath.path
 	    ? resolvePath(parsedPath.path, basePath, append || next.append)
-	    : (current && current.path) || '/';
-	  var query = resolveQuery(parsedPath.query, next.query);
+	    : basePath;
+
+	  var query = resolveQuery(
+	    parsedPath.query,
+	    next.query,
+	    router && router.options.parseQuery
+	  );
+
 	  var hash = next.hash || parsedPath.hash;
 	  if (hash && hash.charAt(0) !== '#') {
 	    hash = "#" + hash;
@@ -1413,13 +1534,18 @@
 
 	/*  */
 
-	function createMatcher (routes) {
+
+	function createMatcher (
+	  routes,
+	  router
+	) {
 	  var ref = createRouteMap(routes);
+	  var pathList = ref.pathList;
 	  var pathMap = ref.pathMap;
 	  var nameMap = ref.nameMap;
 
 	  function addRoutes (routes) {
-	    createRouteMap(routes, pathMap, nameMap);
+	    createRouteMap(routes, pathList, pathMap, nameMap);
 	  }
 
 	  function match (
@@ -1427,7 +1553,7 @@
 	    currentRoute,
 	    redirectedFrom
 	  ) {
-	    var location = normalizeLocation(raw, currentRoute);
+	    var location = normalizeLocation(raw, currentRoute, false, router);
 	    var name = location.name;
 
 	    if (name) {
@@ -1435,7 +1561,8 @@
 	      if (process.env.NODE_ENV !== 'production') {
 	        warn(record, ("Route with name '" + name + "' does not exist"));
 	      }
-	      var paramNames = getRouteRegex(record.path).keys
+	      if (!record) { return _createRoute(null, location) }
+	      var paramNames = record.regex.keys
 	        .filter(function (key) { return !key.optional; })
 	        .map(function (key) { return key.name; });
 
@@ -1457,9 +1584,11 @@
 	      }
 	    } else if (location.path) {
 	      location.params = {};
-	      for (var path in pathMap) {
-	        if (matchRoute(path, location.params, location.path)) {
-	          return _createRoute(pathMap[path], location, redirectedFrom)
+	      for (var i = 0; i < pathList.length; i++) {
+	        var path = pathList[i];
+	        var record$1 = pathMap[path];
+	        if (matchRoute(record$1.regex, location.path, location.params)) {
+	          return _createRoute(record$1, location, redirectedFrom)
 	        }
 	      }
 	    }
@@ -1473,7 +1602,7 @@
 	  ) {
 	    var originalRedirect = record.redirect;
 	    var redirect = typeof originalRedirect === 'function'
-	        ? originalRedirect(createRoute(record, location))
+	        ? originalRedirect(createRoute(record, location, null, router))
 	        : originalRedirect;
 
 	    if (typeof redirect === 'string') {
@@ -1481,9 +1610,11 @@
 	    }
 
 	    if (!redirect || typeof redirect !== 'object') {
-	      process.env.NODE_ENV !== 'production' && warn(
-	        false, ("invalid redirect option: " + (JSON.stringify(redirect)))
-	      );
+	      if (process.env.NODE_ENV !== 'production') {
+	        warn(
+	          false, ("invalid redirect option: " + (JSON.stringify(redirect)))
+	        );
+	      }
 	      return _createRoute(null, location)
 	    }
 
@@ -1523,7 +1654,9 @@
 	        hash: hash
 	      }, undefined, location)
 	    } else {
-	      warn(false, ("invalid redirect option: " + (JSON.stringify(redirect))));
+	      if (process.env.NODE_ENV !== 'production') {
+	        warn(false, ("invalid redirect option: " + (JSON.stringify(redirect))));
+	      }
 	      return _createRoute(null, location)
 	    }
 	  }
@@ -1558,7 +1691,7 @@
 	    if (record && record.matchAs) {
 	      return alias(record, location, record.matchAs)
 	    }
-	    return createRoute(record, location, redirectedFrom)
+	    return createRoute(record, location, redirectedFrom, router)
 	  }
 
 	  return {
@@ -1568,14 +1701,11 @@
 	}
 
 	function matchRoute (
+	  regex,
 	  path,
-	  params,
-	  pathname
+	  params
 	) {
-	  var ref = getRouteRegex(path);
-	  var regexp = ref.regexp;
-	  var keys = ref.keys;
-	  var m = pathname.match(regexp);
+	  var m = path.match(regex);
 
 	  if (!m) {
 	    return false
@@ -1584,9 +1714,11 @@
 	  }
 
 	  for (var i = 1, len = m.length; i < len; ++i) {
-	    var key = keys[i - 1];
+	    var key = regex.keys[i - 1];
 	    var val = typeof m[i] === 'string' ? decodeURIComponent(m[i]) : m[i];
-	    if (key) { params[key.name] = val; }
+	    if (key) {
+	      params[key.name] = val;
+	    }
 	  }
 
 	  return true
@@ -1640,7 +1772,9 @@
 	    if (isObject && typeof shouldScroll.selector === 'string') {
 	      var el = document.querySelector(shouldScroll.selector);
 	      if (el) {
-	        position = getElementPosition(el);
+	        var offset = shouldScroll.offset && typeof shouldScroll.offset === 'object' ? shouldScroll.offset : {};
+	        offset = normalizeOffset(offset);
+	        position = getElementPosition(el, offset);
 	      } else if (isValidPosition(shouldScroll)) {
 	        position = normalizePosition(shouldScroll);
 	      }
@@ -1671,12 +1805,13 @@
 	  }
 	}
 
-	function getElementPosition (el) {
-	  var docRect = document.documentElement.getBoundingClientRect();
+	function getElementPosition (el, offset) {
+	  var docEl = document.documentElement;
+	  var docRect = docEl.getBoundingClientRect();
 	  var elRect = el.getBoundingClientRect();
 	  return {
-	    x: elRect.left - docRect.left,
-	    y: elRect.top - docRect.top
+	    x: elRect.left - docRect.left - offset.x,
+	    y: elRect.top - docRect.top - offset.y
 	  }
 	}
 
@@ -1688,6 +1823,13 @@
 	  return {
 	    x: isNumber(obj.x) ? obj.x : window.pageXOffset,
 	    y: isNumber(obj.y) ? obj.y : window.pageYOffset
+	  }
+	}
+
+	function normalizeOffset (obj) {
+	  return {
+	    x: isNumber(obj.x) ? obj.x : 0,
+	    y: isNumber(obj.y) ? obj.y : 0
 	  }
 	}
 
@@ -1773,7 +1915,6 @@
 
 	/*  */
 
-
 	var History = function History (router, base) {
 	  this.router = router;
 	  this.base = normalizeBase(base);
@@ -1782,18 +1923,27 @@
 	  this.pending = null;
 	  this.ready = false;
 	  this.readyCbs = [];
+	  this.readyErrorCbs = [];
+	  this.errorCbs = [];
 	};
 
 	History.prototype.listen = function listen (cb) {
 	  this.cb = cb;
 	};
 
-	History.prototype.onReady = function onReady (cb) {
+	History.prototype.onReady = function onReady (cb, errorCb) {
 	  if (this.ready) {
 	    cb();
 	  } else {
 	    this.readyCbs.push(cb);
+	    if (errorCb) {
+	      this.readyErrorCbs.push(errorCb);
+	    }
 	  }
+	};
+
+	History.prototype.onError = function onError (errorCb) {
+	  this.errorCbs.push(errorCb);
 	};
 
 	History.prototype.transitionTo = function transitionTo (location, onComplete, onAbort) {
@@ -1808,18 +1958,34 @@
 	    // fire ready cbs once
 	    if (!this$1.ready) {
 	      this$1.ready = true;
-	      this$1.readyCbs.forEach(function (cb) {
-	        cb(route);
-	      });
+	      this$1.readyCbs.forEach(function (cb) { cb(route); });
 	    }
-	  }, onAbort);
+	  }, function (err) {
+	    if (onAbort) {
+	      onAbort(err);
+	    }
+	    if (err && !this$1.ready) {
+	      this$1.ready = true;
+	      this$1.readyErrorCbs.forEach(function (cb) { cb(err); });
+	    }
+	  });
 	};
 
 	History.prototype.confirmTransition = function confirmTransition (route, onComplete, onAbort) {
 	    var this$1 = this;
 
 	  var current = this.current;
-	  var abort = function () { onAbort && onAbort(); };
+	  var abort = function (err) {
+	    if (isError(err)) {
+	      if (this$1.errorCbs.length) {
+	        this$1.errorCbs.forEach(function (cb) { cb(err); });
+	      } else {
+	        warn(false, 'uncaught error during route navigation:');
+	        console.error(err);
+	      }
+	    }
+	    onAbort && onAbort(err);
+	  };
 	  if (
 	    isSameRoute(route, current) &&
 	    // in the case the route map has been dynamically appended to
@@ -1852,29 +2018,44 @@
 	    if (this$1.pending !== route) {
 	      return abort()
 	    }
-	    hook(route, current, function (to) {
-	      if (to === false) {
-	        // next(false) -> abort navigation, ensure current URL
-	        this$1.ensureURL(true);
-	        abort();
-	      } else if (typeof to === 'string' || typeof to === 'object') {
-	        // next('/') or next({ path: '/' }) -> redirect
-	        (typeof to === 'object' && to.replace) ? this$1.replace(to) : this$1.push(to);
-	        abort();
-	      } else {
-	        // confirm transition and pass on the value
-	        next(to);
-	      }
-	    });
+	    try {
+	      hook(route, current, function (to) {
+	        if (to === false || isError(to)) {
+	          // next(false) -> abort navigation, ensure current URL
+	          this$1.ensureURL(true);
+	          abort(to);
+	        } else if (
+	          typeof to === 'string' ||
+	          (typeof to === 'object' && (
+	            typeof to.path === 'string' ||
+	            typeof to.name === 'string'
+	          ))
+	        ) {
+	          // next('/') or next({ path: '/' }) -> redirect
+	          abort();
+	          if (typeof to === 'object' && to.replace) {
+	            this$1.replace(to);
+	          } else {
+	            this$1.push(to);
+	          }
+	        } else {
+	          // confirm transition and pass on the value
+	          next(to);
+	        }
+	      });
+	    } catch (e) {
+	      abort(e);
+	    }
 	  };
 
 	  runQueue(queue, iterator, function () {
 	    var postEnterCbs = [];
 	    var isValid = function () { return this$1.current === route; };
-	    var enterGuards = extractEnterGuards(activated, postEnterCbs, isValid);
 	    // wait until async components are resolved before
 	    // extracting in-component enter guards
-	    runQueue(enterGuards, iterator, function () {
+	    var enterGuards = extractEnterGuards(activated, postEnterCbs, isValid);
+	    var queue = enterGuards.concat(this$1.router.resolveHooks);
+	    runQueue(queue, iterator, function () {
 	      if (this$1.pending !== route) {
 	        return abort()
 	      }
@@ -1882,7 +2063,7 @@
 	      onComplete(route);
 	      if (this$1.router.app) {
 	        this$1.router.app.$nextTick(function () {
-	          postEnterCbs.forEach(function (cb) { return cb(); });
+	          postEnterCbs.forEach(function (cb) { cb(); });
 	        });
 	      }
 	    });
@@ -1903,7 +2084,9 @@
 	    if (inBrowser) {
 	      // respect <base> tag
 	      var baseEl = document.querySelector('base');
-	      base = baseEl ? baseEl.getAttribute('href') : '/';
+	      base = (baseEl && baseEl.getAttribute('href')) || '/';
+	      // strip full URL origin
+	      base = base.replace(/^https?:\/\/[^\/]+/, '');
 	    } else {
 	      base = '/';
 	    }
@@ -1971,8 +2154,10 @@
 	}
 
 	function bindGuard (guard, instance) {
-	  return function boundRouteGuard () {
-	    return guard.apply(instance, arguments)
+	  if (instance) {
+	    return function boundRouteGuard () {
+	      return guard.apply(instance, arguments)
+	    }
 	  }
 	}
 
@@ -2026,31 +2211,66 @@
 	}
 
 	function resolveAsyncComponents (matched) {
-	  return flatMapComponents(matched, function (def, _, match, key) {
-	    // if it's a function and doesn't have Vue options attached,
-	    // assume it's an async component resolve function.
-	    // we are not using Vue's default async resolving mechanism because
-	    // we want to halt the navigation until the incoming component has been
-	    // resolved.
-	    if (typeof def === 'function' && !def.options) {
-	      return function (to, from, next) {
+	  return function (to, from, next) {
+	    var hasAsync = false;
+	    var pending = 0;
+	    var error = null;
+
+	    flatMapComponents(matched, function (def, _, match, key) {
+	      // if it's a function and doesn't have cid attached,
+	      // assume it's an async component resolve function.
+	      // we are not using Vue's default async resolving mechanism because
+	      // we want to halt the navigation until the incoming component has been
+	      // resolved.
+	      if (typeof def === 'function' && def.cid === undefined) {
+	        hasAsync = true;
+	        pending++;
+
 	        var resolve = once(function (resolvedDef) {
+	          // save resolved on async factory in case it's used elsewhere
+	          def.resolved = typeof resolvedDef === 'function'
+	            ? resolvedDef
+	            : _Vue.extend(resolvedDef);
 	          match.components[key] = resolvedDef;
-	          next();
+	          pending--;
+	          if (pending <= 0) {
+	            next();
+	          }
 	        });
 
 	        var reject = once(function (reason) {
-	          warn(false, ("Failed to resolve async component " + key + ": " + reason));
-	          next(false);
+	          var msg = "Failed to resolve async component " + key + ": " + reason;
+	          process.env.NODE_ENV !== 'production' && warn(false, msg);
+	          if (!error) {
+	            error = isError(reason)
+	              ? reason
+	              : new Error(msg);
+	            next(error);
+	          }
 	        });
 
-	        var res = def(resolve, reject);
-	        if (res && typeof res.then === 'function') {
-	          res.then(resolve, reject);
+	        var res;
+	        try {
+	          res = def(resolve, reject);
+	        } catch (e) {
+	          reject(e);
+	        }
+	        if (res) {
+	          if (typeof res.then === 'function') {
+	            res.then(resolve, reject);
+	          } else {
+	            // new syntax in Vue 2.3
+	            var comp = res.component;
+	            if (comp && typeof comp.then === 'function') {
+	              comp.then(resolve, reject);
+	            }
+	          }
 	        }
 	      }
-	    }
-	  })
+	    });
+
+	    if (!hasAsync) { next(); }
+	  }
 	}
 
 	function flatMapComponents (
@@ -2077,10 +2297,17 @@
 	function once (fn) {
 	  var called = false;
 	  return function () {
+	    var args = [], len = arguments.length;
+	    while ( len-- ) args[ len ] = arguments[ len ];
+
 	    if (called) { return }
 	    called = true;
-	    return fn.apply(this, arguments)
+	    return fn.apply(this, args)
 	  }
+	}
+
+	function isError (err) {
+	  return Object.prototype.toString.call(err).indexOf('Error') > -1
 	}
 
 	/*  */
@@ -2099,9 +2326,10 @@
 	    }
 
 	    window.addEventListener('popstate', function (e) {
+	      var current = this$1.current;
 	      this$1.transitionTo(getLocation(this$1.base), function (route) {
 	        if (expectScroll) {
-	          handleScroll(router, route, this$1.current, true);
+	          handleScroll(router, route, current, true);
 	        }
 	      });
 	    });
@@ -2118,9 +2346,11 @@
 	  HTML5History.prototype.push = function push (location, onComplete, onAbort) {
 	    var this$1 = this;
 
+	    var ref = this;
+	    var fromRoute = ref.current;
 	    this.transitionTo(location, function (route) {
 	      pushState(cleanPath(this$1.base + route.fullPath));
-	      handleScroll(this$1.router, route, this$1.current, false);
+	      handleScroll(this$1.router, route, fromRoute, false);
 	      onComplete && onComplete(route);
 	    }, onAbort);
 	  };
@@ -2128,9 +2358,11 @@
 	  HTML5History.prototype.replace = function replace (location, onComplete, onAbort) {
 	    var this$1 = this;
 
+	    var ref = this;
+	    var fromRoute = ref.current;
 	    this.transitionTo(location, function (route) {
 	      replaceState(cleanPath(this$1.base + route.fullPath));
-	      handleScroll(this$1.router, route, this$1.current, false);
+	      handleScroll(this$1.router, route, fromRoute, false);
 	      onComplete && onComplete(route);
 	    }, onAbort);
 	  };
@@ -2253,10 +2485,10 @@
 	}
 
 	function replaceHash (path) {
-	  var i = window.location.href.indexOf('#');
-	  window.location.replace(
-	    window.location.href.slice(0, i >= 0 ? i : 0) + '#' + path
-	  );
+	  var href = window.location.href;
+	  var i = href.indexOf('#');
+	  var base = i >= 0 ? href.slice(0, i) : href;
+	  window.location.replace((base + "#" + path));
 	}
 
 	/*  */
@@ -2327,11 +2559,12 @@
 	  this.apps = [];
 	  this.options = options;
 	  this.beforeHooks = [];
+	  this.resolveHooks = [];
 	  this.afterHooks = [];
-	  this.matcher = createMatcher(options.routes || []);
+	  this.matcher = createMatcher(options.routes || [], this);
 
 	  var mode = options.mode || 'hash';
-	  this.fallback = mode === 'history' && !supportsPushState;
+	  this.fallback = mode === 'history' && !supportsPushState && options.fallback !== false;
 	  if (this.fallback) {
 	    mode = 'hash';
 	  }
@@ -2412,15 +2645,23 @@
 	};
 
 	VueRouter.prototype.beforeEach = function beforeEach (fn) {
-	  this.beforeHooks.push(fn);
+	  return registerHook(this.beforeHooks, fn)
+	};
+
+	VueRouter.prototype.beforeResolve = function beforeResolve (fn) {
+	  return registerHook(this.resolveHooks, fn)
 	};
 
 	VueRouter.prototype.afterEach = function afterEach (fn) {
-	  this.afterHooks.push(fn);
+	  return registerHook(this.afterHooks, fn)
 	};
 
-	VueRouter.prototype.onReady = function onReady (cb) {
-	  this.history.onReady(cb);
+	VueRouter.prototype.onReady = function onReady (cb, errorCb) {
+	  this.history.onReady(cb, errorCb);
+	};
+
+	VueRouter.prototype.onError = function onError (errorCb) {
+	  this.history.onError(errorCb);
 	};
 
 	VueRouter.prototype.push = function push (location, onComplete, onAbort) {
@@ -2445,7 +2686,9 @@
 
 	VueRouter.prototype.getMatchedComponents = function getMatchedComponents (to) {
 	  var route = to
-	    ? this.resolve(to).route
+	    ? to.matched
+	      ? to
+	      : this.resolve(to).route
 	    : this.currentRoute;
 	  if (!route) {
 	    return []
@@ -2462,7 +2705,12 @@
 	  current,
 	  append
 	) {
-	  var location = normalizeLocation(to, current || this.history.current, append);
+	  var location = normalizeLocation(
+	    to,
+	    current || this.history.current,
+	    append,
+	    this
+	  );
 	  var route = this.match(location, current);
 	  var fullPath = route.redirectedFrom || route.fullPath;
 	  var base = this.history.base;
@@ -2486,13 +2734,21 @@
 
 	Object.defineProperties( VueRouter.prototype, prototypeAccessors );
 
+	function registerHook (list, fn) {
+	  list.push(fn);
+	  return function () {
+	    var i = list.indexOf(fn);
+	    if (i > -1) { list.splice(i, 1); }
+	  }
+	}
+
 	function createHref (base, fullPath, mode) {
 	  var path = mode === 'hash' ? '#' + fullPath : fullPath;
 	  return base ? cleanPath(base + '/' + path) : path
 	}
 
 	VueRouter.install = install;
-	VueRouter.version = '2.2.1';
+	VueRouter.version = '2.6.0';
 
 	if (inBrowser && window.Vue) {
 	  window.Vue.use(VueRouter);
@@ -2502,9 +2758,9 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
-/***/ },
+/***/ }),
 /* 6 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// shim for using process in browser
 	var process = module.exports = {};
@@ -2676,6 +2932,10 @@
 	process.removeListener = noop;
 	process.removeAllListeners = noop;
 	process.emit = noop;
+	process.prependListener = noop;
+	process.prependOnceListener = noop;
+
+	process.listeners = function (name) { return [] }
 
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
@@ -2688,22 +2948,15 @@
 	process.umask = function() { return 0; };
 
 
-/***/ },
+/***/ }),
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = []
 
-	/* styles */
-	__vue_styles__.push(__webpack_require__(8)
-	)
-
-	/* script */
-	__vue_exports__ = __webpack_require__(9)
-
 	/* template */
-	var __vue_template__ = __webpack_require__(18)
+	var __vue_template__ = __webpack_require__(8)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -2715,322 +2968,85 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/Volumes/MacOSXExt/Users/tiagoalves/Projects/weex/weex-todo-list/src/views/TodosView.vue"
+	__vue_options__.__file = "D:\\work\\weex-learning\\demo1\\src\\views\\Counter.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 	__vue_options__.style = __vue_options__.style || {}
 	__vue_styles__.forEach(function (module) {
-	for (var name in module) {
-	__vue_options__.style[name] = module[name]
-	}
+	  for (var name in module) {
+	    __vue_options__.style[name] = module[name]
+	  }
 	})
+	if (typeof __register_static_styles__ === "function") {
+	  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+	}
 
 	module.exports = __vue_exports__
 
 
-/***/ },
+/***/ }),
 /* 8 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
-	module.exports = {
-	  "stories-view": {
-	    "height": 100
-	  },
-	  "todo-cell": {
-	    "marginBottom": 3,
-	    "borderBottomWidth": 2,
-	    "borderBottomStyle": "solid",
-	    "borderBottomColor": "#DDDDDD",
-	    "backgroundColor": "#FFFFFF"
-	  },
-	  "loading": {
-	    "width": 750,
-	    "height": 120,
-	    "display": "flex",
-	    "alignItems": "center",
-	    "justifyContent": "center"
-	  },
-	  "loading-text": {
-	    "textAlign": "center",
-	    "fontSize": 40,
-	    "color": "#BBBBBB"
-	  }
-	}
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('text', [_vm._v("Counter")])
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 
-/***/ },
+/***/ }),
 /* 9 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = []
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; //
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-
-	var _appHeader = __webpack_require__(10);
-
-	var _appHeader2 = _interopRequireDefault(_appHeader);
-
-	var _todo = __webpack_require__(14);
-
-	var _todo2 = _interopRequireDefault(_todo);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = {
-	  components: { AppHeader: _appHeader2.default, Todo: _todo2.default },
-	  // props: {
-	  //   type: {
-	  //     type: String,
-	  //     required: true,
-	  //     default: 'top'
-	  //   }
-	  // },
-	  // data () {
-	  //   return {
-	  //     loading: true
-	  //   }
-	  // },
-
-	  computed: {
-	    todos: function todos() {
-	      var todos = this.$store.getters.activeTodos;
-	      return Object.keys(todos).reduce(function (acc, key) {
-	        acc.push(_extends({}, todos[key], { todoId: key }));
-	        return acc;
-	      }, []).sort(function (a, b) {
-	        return a.done - b.done;
-	      });
-	    }
-	  },
-
-	  mounted: function mounted() {
-	    this.$store.dispatch('LOAD_TODOS');
+	/* template */
+	var __vue_template__ = __webpack_require__(10)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "D:\\work\\weex-learning\\demo1\\src\\views\\CounterSView.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+	__vue_options__.style = __vue_options__.style || {}
+	__vue_styles__.forEach(function (module) {
+	  for (var name in module) {
+	    __vue_options__.style[name] = module[name]
 	  }
+	})
+	if (typeof __register_static_styles__ === "function") {
+	  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+	}
 
-	  // methods: {
-	  //   fetchListData () {
-	  //     this.loading = true
-	  //     this.$store.dispatch('FETCH_LIST_DATA', {
-	  //       type: this.type
-	  //     }).then(() => {
-	  //       this.loading = false
-	  //     })
-	  //   },
-	  //   loadMoreStories () {
-	  //     this.loading = true
-	  //     this.$store.dispatch('LOAD_MORE_ITEMS').then(() => {
-	  //       this.loading = false
-	  //     })
-	  //   }
-	  // },
+	module.exports = __vue_exports__
 
-	  // created () {
-	  //   this.fetchListData()
-	  // }
-	};
 
-/***/ },
+/***/ }),
 /* 10 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-	var __vue_exports__, __vue_options__
-	var __vue_styles__ = []
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('text', [_vm._v("CounterSView")])
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 
-	/* styles */
-	__vue_styles__.push(__webpack_require__(11)
-	)
-
-	/* script */
-	__vue_exports__ = __webpack_require__(12)
-
-	/* template */
-	var __vue_template__ = __webpack_require__(13)
-	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-	if (
-	  typeof __vue_exports__.default === "object" ||
-	  typeof __vue_exports__.default === "function"
-	) {
-	if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-	__vue_options__ = __vue_exports__ = __vue_exports__.default
-	}
-	if (typeof __vue_options__ === "function") {
-	  __vue_options__ = __vue_options__.options
-	}
-	__vue_options__.__file = "/Volumes/MacOSXExt/Users/tiagoalves/Projects/weex/weex-todo-list/src/components/app-header.vue"
-	__vue_options__.render = __vue_template__.render
-	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-	__vue_options__.style = __vue_options__.style || {}
-	__vue_styles__.forEach(function (module) {
-	for (var name in module) {
-	__vue_options__.style[name] = module[name]
-	}
-	})
-
-	module.exports = __vue_exports__
-
-
-/***/ },
+/***/ }),
 /* 11 */
-/***/ function(module, exports) {
-
-	module.exports = {
-	  "header": {
-	    "position": "relative",
-	    "height": 120,
-	    "marginBottom": 3,
-	    "borderBottomWidth": 2,
-	    "borderBottomStyle": "solid",
-	    "borderBottomColor": "#35495e",
-	    "backgroundColor": "#42b983"
-	  },
-	  "title-menu": {
-	    "position": "relative",
-	    "width": 150,
-	    "height": 50,
-	    "top": 35,
-	    "left": 35
-	  },
-	  "title": {
-	    "fontFamily": "Verdana, Geneva, sans-serif",
-	    "fontSize": 32,
-	    "color": "#FFFFFF"
-	  },
-	  "nav": {
-	    "display": "flex",
-	    "position": "absolute",
-	    "right": 35,
-	    "top": 20,
-	    "height": 80,
-	    "flexDirection": "row",
-	    "flexWrap": "nowrap",
-	    "justifyContent": "flex-start",
-	    "alignItems": "center"
-	  },
-	  "link": {
-	    "paddingLeft": 15,
-	    "paddingRight": 15
-	  },
-	  "button": {
-	    "borderWidth": 2,
-	    "borderStyle": "solid",
-	    "borderColor": "#2c3e50",
-	    "backgroundColor": "#35495e",
-	    "height": 70,
-	    "width": 70,
-	    "lineHeight": 60,
-	    "borderRadius": 15,
-	    "color": "#FFFFFF",
-	    "textAlign": "center",
-	    "fontFamily": "Verdana, Geneva, sans-serif",
-	    "fontSize": 32
-	  }
-	}
-
-/***/ },
-/* 12 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-
-	var modal = weex.requireModule('modal');
-
-	exports.default = {
-	  methods: {
-	    openAddTodo: function openAddTodo(event) {
-	      var _this = this;
-
-	      modal.prompt({
-	        message: 'New todo item:'
-	      }, function (value) {
-	        if (value.result === 'OK' && value.data.length > 0) {
-	          _this.$store.dispatch('ADD_TODO', { name: value.data });
-	        }
-	      });
-	    }
-	  }
-	};
-
-/***/ },
-/* 13 */
-/***/ function(module, exports) {
-
-	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
-	    staticClass: ["header"]
-	  }, [_c('div', {
-	    staticClass: ["title-menu"],
-	    on: {
-	      "click": function($event) {
-	        _vm.jump('/')
-	      }
-	    }
-	  }, [_c('text', {
-	    staticClass: ["title"]
-	  }, [_vm._v("todos")])]), _c('div', {
-	    staticClass: ["nav"]
-	  }, [_c('text', {
-	    staticClass: ["button"],
-	    on: {
-	      "click": function($event) {
-	        _vm.openAddTodo()
-	      }
-	    }
-	  }, [_vm._v("+")])])])
-	},staticRenderFns: []}
-	module.exports.render._withStripped = true
-
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = []
 
-	/* styles */
-	__vue_styles__.push(__webpack_require__(15)
-	)
-
-	/* script */
-	__vue_exports__ = __webpack_require__(16)
-
 	/* template */
-	var __vue_template__ = __webpack_require__(17)
+	var __vue_template__ = __webpack_require__(12)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -3042,187 +3058,34 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/Volumes/MacOSXExt/Users/tiagoalves/Projects/weex/weex-todo-list/src/components/todo.vue"
+	__vue_options__.__file = "D:\\work\\weex-learning\\demo1\\src\\views\\Hello.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 	__vue_options__.style = __vue_options__.style || {}
 	__vue_styles__.forEach(function (module) {
-	for (var name in module) {
-	__vue_options__.style[name] = module[name]
-	}
+	  for (var name in module) {
+	    __vue_options__.style[name] = module[name]
+	  }
 	})
+	if (typeof __register_static_styles__ === "function") {
+	  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+	}
 
 	module.exports = __vue_exports__
 
 
-/***/ },
-/* 15 */
-/***/ function(module, exports) {
-
-	module.exports = {
-	  "cell-item": {
-	    "display": "flex",
-	    "flexDirection": "row",
-	    "flexWrap": "nowrap",
-	    "justifyContent": "space-between",
-	    "position": "relative",
-	    "paddingTop": 20,
-	    "paddingBottom": 25,
-	    "paddingLeft": 50,
-	    "paddingRight": 40
-	  },
-	  "todo-name": {
-	    "fontSize": 33,
-	    "color": "#404040",
-	    "lineHeight": 62,
-	    "whiteSpace": "nowrap",
-	    "textOverflow": "ellipsis",
-	    "display": "block",
-	    "overflow": "hidden",
-	    "marginRight": 20
-	  },
-	  "toggle": {
-	    "borderWidth": 2,
-	    "borderStyle": "solid",
-	    "borderColor": "#2c3e50",
-	    "backgroundColor": "#35495e",
-	    "height": 70,
-	    "width": 170,
-	    "lineHeight": 60,
-	    "borderRadius": 15,
-	    "color": "#FFFFFF",
-	    "textAlign": "center",
-	    "right": 0,
-	    "fontFamily": "Verdana, Geneva, sans-serif",
-	    "fontSize": 32
-	  }
-	}
-
-/***/ },
-/* 16 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-
-	exports.default = {
-	  props: {
-	    todo: {
-	      type: Object,
-	      required: true
-	    },
-	    todoId: {
-	      type: String,
-	      required: true
-	    }
-	  },
-	  computed: {
-	    isDone: function isDone() {
-	      return this.todo.done ? "undo..." : "done!";
-	    },
-	    buttonStyle: function buttonStyle() {
-	      if (this.todo.done) {
-	        return {
-	          'color': '#a0a0a0',
-	          'backgroundColor': 'white',
-	          'borderColor': 'white',
-	          'textDecoration': 'underline'
-	        };
-	      } else return {
-	        'color': 'white',
-	        'backgroundColor': '#35495e',
-	        'borderColor': '#2c3e50',
-	        'textDecoration': 'none'
-	      };
-	    },
-	    textStyle: function textStyle() {
-	      if (this.todo.done) {
-	        return {
-	          'textDecoration': 'line-through',
-	          'fontStyle': 'italic',
-	          'color': '#a0a0a0'
-	        };
-	      } else return {
-	        'textDecoration': 'none',
-	        'fontStyle': 'normal',
-	        'color': '#404040'
-	      };
-	    }
-	  },
-	  methods: {
-	    toggleDone: function toggleDone() {
-	      this.done = !this.done;
-	      this.$store.dispatch('TOGGLE_TODO', { id: this.todoId, done: this.done });
-	    }
-	  }
-	};
-
-/***/ },
-/* 17 */
-/***/ function(module, exports) {
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
-	    staticClass: ["cell-item"]
-	  }, [_c('text', {
-	    ref: "name",
-	    staticClass: ["todo-name"],
-	    style: _vm.textStyle
-	  }, [_vm._v(_vm._s(_vm.todo.name))]), _c('text', {
-	    staticClass: ["toggle"],
-	    style: _vm.buttonStyle,
-	    on: {
-	      "click": _vm.toggleDone
-	    }
-	  }, [_vm._v(_vm._s(_vm.isDone))])])
+	  return _c('text', [_vm._v("Hello")])
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 
-/***/ },
-/* 18 */
-/***/ function(module, exports) {
-
-	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
-	    staticClass: ["stories-view"],
-	    appendAsTree: true,
-	    attrs: {
-	      "append": "tree"
-	    }
-	  }, [_c('app-header'), _c('list', {
-	    staticClass: ["todos-list"]
-	  }, _vm._l((_vm.todos), function(todo) {
-	    return _c('cell', {
-	      key: todo.todoId,
-	      staticClass: ["todo-cell"],
-	      appendAsTree: true,
-	      attrs: {
-	        "append": "tree"
-	      }
-	    }, [_c('todo', {
-	      attrs: {
-	        "todo": todo,
-	        "todoId": todo.todoId
-	      }
-	    })], 1)
-	  }))], 1)
-	},staticRenderFns: []}
-	module.exports.render._withStripped = true
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -3230,15 +3093,15 @@
 	  value: true
 	});
 
-	var _vuex = __webpack_require__(20);
+	var _vuex = __webpack_require__(14);
 
 	var _vuex2 = _interopRequireDefault(_vuex);
 
-	var _actions = __webpack_require__(21);
+	var _actions = __webpack_require__(15);
 
 	var actions = _interopRequireWildcard(_actions);
 
-	var _mutations = __webpack_require__(22);
+	var _mutations = __webpack_require__(16);
 
 	var mutations = _interopRequireWildcard(_mutations);
 
@@ -3296,12 +3159,12 @@
 
 	exports.default = store;
 
-/***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * vuex v2.1.2
+	 * vuex v2.3.0
 	 * (c) 2017 Evan You
 	 * @license MIT
 	 */
@@ -3310,26 +3173,6 @@
 		typeof define === 'function' && define.amd ? define(factory) :
 		(global.Vuex = factory());
 	}(this, (function () { 'use strict';
-
-	var devtoolHook =
-	  typeof window !== 'undefined' &&
-	  window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
-
-	function devtoolPlugin (store) {
-	  if (!devtoolHook) { return }
-
-	  store._devtoolHook = devtoolHook;
-
-	  devtoolHook.emit('vuex:init', store);
-
-	  devtoolHook.on('vuex:travel-to-state', function (targetState) {
-	    store.replaceState(targetState);
-	  });
-
-	  store.subscribe(function (mutation, state) {
-	    devtoolHook.emit('vuex:mutation', mutation, state);
-	  });
-	}
 
 	var applyMixin = function (Vue) {
 	  var version = Number(Vue.version.split('.')[0]);
@@ -3366,116 +3209,24 @@
 	  }
 	};
 
-	var mapState = normalizeNamespace(function (namespace, states) {
-	  var res = {};
-	  normalizeMap(states).forEach(function (ref) {
-	    var key = ref.key;
-	    var val = ref.val;
+	var devtoolHook =
+	  typeof window !== 'undefined' &&
+	  window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
 
-	    res[key] = function mappedState () {
-	      var state = this.$store.state;
-	      var getters = this.$store.getters;
-	      if (namespace) {
-	        var module = getModuleByNamespace(this.$store, 'mapState', namespace);
-	        if (!module) {
-	          return
-	        }
-	        state = module.context.state;
-	        getters = module.context.getters;
-	      }
-	      return typeof val === 'function'
-	        ? val.call(this, state, getters)
-	        : state[val]
-	    };
+	function devtoolPlugin (store) {
+	  if (!devtoolHook) { return }
+
+	  store._devtoolHook = devtoolHook;
+
+	  devtoolHook.emit('vuex:init', store);
+
+	  devtoolHook.on('vuex:travel-to-state', function (targetState) {
+	    store.replaceState(targetState);
 	  });
-	  return res
-	});
 
-	var mapMutations = normalizeNamespace(function (namespace, mutations) {
-	  var res = {};
-	  normalizeMap(mutations).forEach(function (ref) {
-	    var key = ref.key;
-	    var val = ref.val;
-
-	    val = namespace + val;
-	    res[key] = function mappedMutation () {
-	      var args = [], len = arguments.length;
-	      while ( len-- ) args[ len ] = arguments[ len ];
-
-	      if (namespace && !getModuleByNamespace(this.$store, 'mapMutations', namespace)) {
-	        return
-	      }
-	      return this.$store.commit.apply(this.$store, [val].concat(args))
-	    };
+	  store.subscribe(function (mutation, state) {
+	    devtoolHook.emit('vuex:mutation', mutation, state);
 	  });
-	  return res
-	});
-
-	var mapGetters = normalizeNamespace(function (namespace, getters) {
-	  var res = {};
-	  normalizeMap(getters).forEach(function (ref) {
-	    var key = ref.key;
-	    var val = ref.val;
-
-	    val = namespace + val;
-	    res[key] = function mappedGetter () {
-	      if (namespace && !getModuleByNamespace(this.$store, 'mapGetters', namespace)) {
-	        return
-	      }
-	      if (!(val in this.$store.getters)) {
-	        console.error(("[vuex] unknown getter: " + val));
-	        return
-	      }
-	      return this.$store.getters[val]
-	    };
-	  });
-	  return res
-	});
-
-	var mapActions = normalizeNamespace(function (namespace, actions) {
-	  var res = {};
-	  normalizeMap(actions).forEach(function (ref) {
-	    var key = ref.key;
-	    var val = ref.val;
-
-	    val = namespace + val;
-	    res[key] = function mappedAction () {
-	      var args = [], len = arguments.length;
-	      while ( len-- ) args[ len ] = arguments[ len ];
-
-	      if (namespace && !getModuleByNamespace(this.$store, 'mapActions', namespace)) {
-	        return
-	      }
-	      return this.$store.dispatch.apply(this.$store, [val].concat(args))
-	    };
-	  });
-	  return res
-	});
-
-	function normalizeMap (map) {
-	  return Array.isArray(map)
-	    ? map.map(function (key) { return ({ key: key, val: key }); })
-	    : Object.keys(map).map(function (key) { return ({ key: key, val: map[key] }); })
-	}
-
-	function normalizeNamespace (fn) {
-	  return function (namespace, map) {
-	    if (typeof namespace !== 'string') {
-	      map = namespace;
-	      namespace = '';
-	    } else if (namespace.charAt(namespace.length - 1) !== '/') {
-	      namespace += '/';
-	    }
-	    return fn(namespace, map)
-	  }
-	}
-
-	function getModuleByNamespace (store, helper, namespace) {
-	  var module = store._modulesNamespaceMap[namespace];
-	  if (!module) {
-	    console.error(("[vuex] module namespace not found in " + helper + "(): " + namespace));
-	  }
-	  return module
 	}
 
 	/**
@@ -3520,13 +3271,11 @@
 	  this.runtime = runtime;
 	  this._children = Object.create(null);
 	  this._rawModule = rawModule;
+	  var rawState = rawModule.state;
+	  this.state = (typeof rawState === 'function' ? rawState() : rawState) || {};
 	};
 
-	var prototypeAccessors$1 = { state: {},namespaced: {} };
-
-	prototypeAccessors$1.state.get = function () {
-	  return this._rawModule.state || {}
-	};
+	var prototypeAccessors$1 = { namespaced: {} };
 
 	prototypeAccessors$1.namespaced.get = function () {
 	  return !!this._rawModule.namespaced
@@ -3710,7 +3459,7 @@
 	var prototypeAccessors = { state: {} };
 
 	prototypeAccessors.state.get = function () {
-	  return this._vm.$data.state
+	  return this._vm._data.$$state
 	};
 
 	prototypeAccessors.state.set = function (v) {
@@ -3787,7 +3536,7 @@
 	    var this$1 = this;
 
 	  this._withCommit(function () {
-	    this$1._vm.state = state;
+	    this$1._vm._data.$$state = state;
 	  });
 	};
 
@@ -3861,7 +3610,9 @@
 	  var silent = Vue.config.silent;
 	  Vue.config.silent = true;
 	  store._vm = new Vue({
-	    data: { state: state },
+	    data: {
+	      $$state: state
+	    },
 	    computed: computed
 	  });
 	  Vue.config.silent = silent;
@@ -3876,7 +3627,7 @@
 	      // dispatch changes in all subscribed watchers
 	      // to force getter re-evaluation for hot reloading.
 	      store._withCommit(function () {
-	        oldVm.state = null;
+	        oldVm._data.$$state = null;
 	      });
 	    }
 	    Vue.nextTick(function () { return oldVm.$destroy(); });
@@ -3888,7 +3639,7 @@
 	  var namespace = store._modules.getNamespace(path);
 
 	  // register in namespace map
-	  if (namespace) {
+	  if (module.namespaced) {
 	    store._modulesNamespaceMap[namespace] = module;
 	  }
 
@@ -4053,7 +3804,7 @@
 	}
 
 	function enableStrictMode (store) {
-	  store._vm.$watch('state', function () {
+	  store._vm.$watch(function () { return this._data.$$state }, function () {
 	    assert(store._committing, "Do not mutate vuex store state outside mutation handlers.");
 	  }, { deep: true, sync: true });
 	}
@@ -4092,10 +3843,126 @@
 	  install(window.Vue);
 	}
 
+	var mapState = normalizeNamespace(function (namespace, states) {
+	  var res = {};
+	  normalizeMap(states).forEach(function (ref) {
+	    var key = ref.key;
+	    var val = ref.val;
+
+	    res[key] = function mappedState () {
+	      var state = this.$store.state;
+	      var getters = this.$store.getters;
+	      if (namespace) {
+	        var module = getModuleByNamespace(this.$store, 'mapState', namespace);
+	        if (!module) {
+	          return
+	        }
+	        state = module.context.state;
+	        getters = module.context.getters;
+	      }
+	      return typeof val === 'function'
+	        ? val.call(this, state, getters)
+	        : state[val]
+	    };
+	    // mark vuex getter for devtools
+	    res[key].vuex = true;
+	  });
+	  return res
+	});
+
+	var mapMutations = normalizeNamespace(function (namespace, mutations) {
+	  var res = {};
+	  normalizeMap(mutations).forEach(function (ref) {
+	    var key = ref.key;
+	    var val = ref.val;
+
+	    val = namespace + val;
+	    res[key] = function mappedMutation () {
+	      var args = [], len = arguments.length;
+	      while ( len-- ) args[ len ] = arguments[ len ];
+
+	      if (namespace && !getModuleByNamespace(this.$store, 'mapMutations', namespace)) {
+	        return
+	      }
+	      return this.$store.commit.apply(this.$store, [val].concat(args))
+	    };
+	  });
+	  return res
+	});
+
+	var mapGetters = normalizeNamespace(function (namespace, getters) {
+	  var res = {};
+	  normalizeMap(getters).forEach(function (ref) {
+	    var key = ref.key;
+	    var val = ref.val;
+
+	    val = namespace + val;
+	    res[key] = function mappedGetter () {
+	      if (namespace && !getModuleByNamespace(this.$store, 'mapGetters', namespace)) {
+	        return
+	      }
+	      if (!(val in this.$store.getters)) {
+	        console.error(("[vuex] unknown getter: " + val));
+	        return
+	      }
+	      return this.$store.getters[val]
+	    };
+	    // mark vuex getter for devtools
+	    res[key].vuex = true;
+	  });
+	  return res
+	});
+
+	var mapActions = normalizeNamespace(function (namespace, actions) {
+	  var res = {};
+	  normalizeMap(actions).forEach(function (ref) {
+	    var key = ref.key;
+	    var val = ref.val;
+
+	    val = namespace + val;
+	    res[key] = function mappedAction () {
+	      var args = [], len = arguments.length;
+	      while ( len-- ) args[ len ] = arguments[ len ];
+
+	      if (namespace && !getModuleByNamespace(this.$store, 'mapActions', namespace)) {
+	        return
+	      }
+	      return this.$store.dispatch.apply(this.$store, [val].concat(args))
+	    };
+	  });
+	  return res
+	});
+
+	function normalizeMap (map) {
+	  return Array.isArray(map)
+	    ? map.map(function (key) { return ({ key: key, val: key }); })
+	    : Object.keys(map).map(function (key) { return ({ key: key, val: map[key] }); })
+	}
+
+	function normalizeNamespace (fn) {
+	  return function (namespace, map) {
+	    if (typeof namespace !== 'string') {
+	      map = namespace;
+	      namespace = '';
+	    } else if (namespace.charAt(namespace.length - 1) !== '/') {
+	      namespace += '/';
+	    }
+	    return fn(namespace, map)
+	  }
+	}
+
+	function getModuleByNamespace (store, helper, namespace) {
+	  var module = store._modulesNamespaceMap[namespace];
+	  if (!module) {
+	    console.error(("[vuex] module namespace not found in " + helper + "(): " + namespace));
+	  }
+	  return module
+	}
+
 	var index = {
 	  Store: Store,
 	  install: install,
-	  version: '2.1.2',
+	  version: '2.3.0',
 	  mapState: mapState,
 	  mapMutations: mapMutations,
 	  mapGetters: mapGetters,
@@ -4107,9 +3974,9 @@
 	})));
 
 
-/***/ },
-/* 21 */
-/***/ function(module, exports) {
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -4155,9 +4022,9 @@
 	  });
 	}
 
-/***/ },
-/* 22 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -4168,7 +4035,7 @@
 	exports.TOGGLE_TODO = TOGGLE_TODO;
 	exports.ADD_TODO = ADD_TODO;
 	exports.SET_USER = SET_USER;
-	var uuidV4 = __webpack_require__(23);
+	var uuidV4 = __webpack_require__(17);
 
 	function SET_TODOS(state, _ref) {
 	  var todos = _ref.todos;
@@ -4195,12 +4062,12 @@
 	  Vue.set(state.users, user.id, user);
 	}
 
-/***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
 
-	var rng = __webpack_require__(24);
-	var bytesToUuid = __webpack_require__(25);
+	var rng = __webpack_require__(18);
+	var bytesToUuid = __webpack_require__(19);
 
 	function v4(options, buf, offset) {
 	  var i = buf && offset || 0;
@@ -4230,9 +4097,9 @@
 	module.exports = v4;
 
 
-/***/ },
-/* 24 */
-/***/ function(module, exports) {
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {// Unique ID creation requires a high quality random # generator.  In the
 	// browser this is a little complicated due to unknown quality of Math.random()
@@ -4243,7 +4110,7 @@
 	var crypto = global.crypto || global.msCrypto; // for IE 11
 	if (crypto && crypto.getRandomValues) {
 	  // WHATWG crypto RNG - http://wiki.whatwg.org/wiki/Crypto
-	  var rnds8 = new Uint8Array(16);
+	  var rnds8 = new Uint8Array(16); // eslint-disable-line no-undef
 	  rng = function whatwgRNG() {
 	    crypto.getRandomValues(rnds8);
 	    return rnds8;
@@ -4255,7 +4122,7 @@
 	  //
 	  // If all else fails, use Math.random().  It's fast, but is of unspecified
 	  // quality.
-	  var  rnds = new Array(16);
+	  var rnds = new Array(16);
 	  rng = function() {
 	    for (var i = 0, r; i < 16; i++) {
 	      if ((i & 0x03) === 0) r = Math.random() * 0x100000000;
@@ -4270,13 +4137,13 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
-/* 25 */
-/***/ function(module, exports) {
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
 
 	/**
 	 * Convert array of 16 byte values to UUID string format of the form:
-	 * XXXXXXXX-XXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+	 * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 	 */
 	var byteToHex = [];
 	for (var i = 0; i < 256; ++i) {
@@ -4286,7 +4153,7 @@
 	function bytesToUuid(buf, offset) {
 	  var i = offset || 0;
 	  var bth = byteToHex;
-	  return  bth[buf[i++]] + bth[buf[i++]] +
+	  return bth[buf[i++]] + bth[buf[i++]] +
 	          bth[buf[i++]] + bth[buf[i++]] + '-' +
 	          bth[buf[i++]] + bth[buf[i++]] + '-' +
 	          bth[buf[i++]] + bth[buf[i++]] + '-' +
@@ -4299,17 +4166,18 @@
 	module.exports = bytesToUuid;
 
 
-/***/ },
-/* 26 */
-/***/ function(module, exports) {
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
 
 	exports.sync = function (store, router, options) {
 	  var moduleName = (options || {}).moduleName || 'route'
 
 	  store.registerModule(moduleName, {
+	    namespaced: true,
 	    state: cloneRoute(router.currentRoute),
 	    mutations: {
-	      'router/ROUTE_CHANGED': function (state, transition) {
+	      'ROUTE_CHANGED': function (state, transition) {
 	        store.state[moduleName] = cloneRoute(transition.to, transition.from)
 	      }
 	    }
@@ -4326,8 +4194,11 @@
 	        return
 	      }
 	      isTimeTraveling = true
+	      var methodToUse = currentPath == null
+	        ? 'replace'
+	        : 'push'
 	      currentPath = route.fullPath
-	      router.push(route)
+	      router[methodToUse](route)
 	    },
 	    { sync: true }
 	  )
@@ -4339,7 +4210,7 @@
 	      return
 	    }
 	    currentPath = to.fullPath
-	    store.commit('router/ROUTE_CHANGED', { to: to, from: from })
+	    store.commit(moduleName + '/ROUTE_CHANGED', { to: to, from: from })
 	  })
 	}
 
@@ -4360,9 +4231,9 @@
 	}
 
 
-/***/ },
-/* 27 */
-/***/ function(module, exports) {
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -4414,9 +4285,9 @@
 	  return res;
 	}
 
-/***/ },
-/* 28 */
-/***/ function(module, exports) {
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
 
 	"use strict";
 
@@ -4433,5 +4304,5 @@
 	  }
 	};
 
-/***/ }
+/***/ })
 /******/ ]);
