@@ -27,3 +27,33 @@
 /weex-todo-list/android/playground/app/gradle/wrapper/gradle-wrapper.jar
 /weex-todo-list/android/playground/app/gradle/wrapper/gradle-wrapper.properties
 #---------------------------------------------------------------------------------------------
+
+#----------------------------------demo1---------------------------------------
+# Created by IDE
+/demo1/.idea/
+/demo1/*.iml
+/demo1/.DS_Store
+/demo1/*.sublime-workspace
+
+# Created by Builder
+/demo1/coverage
+/demo1/dist
+
+# Node
+/demo1/logs
+/demo1/*.log
+/demo1/npm-debug.log*
+/demo1/node_modules
+/demo1/.npm
+
+# Runtime data
+/demo1/pids
+/demo1/*.pid
+/demo1/*.seed
+
+# Android
+/demo1/android/playground/app/gradlew
+/demo1/android/playground/app/gradlew.bat
+/demo1/android/playground/app/gradle/wrapper/gradle-wrapper.jar
+/demo1/android/playground/app/gradle/wrapper/gradle-wrapper.properties
+#---------------------------------------------------------------------------------------------
