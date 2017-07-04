@@ -1,0 +1,29 @@
+#----------------------------------weex-todo-list---------------------------------------
+# Created by IDE
+/weex-todo-list/.idea/
+/weex-todo-list/*.iml
+/weex-todo-list/.DS_Store
+/weex-todo-list/*.sublime-workspace
+
+# Created by Builder
+/weex-todo-list/coverage
+/weex-todo-list/dist
+
+# Node
+/weex-todo-list/logs
+/weex-todo-list/*.log
+/weex-todo-list/npm-debug.log*
+/weex-todo-list/node_modules
+/weex-todo-list/.npm
+
+# Runtime data
+/weex-todo-list/pids
+/weex-todo-list/*.pid
+/weex-todo-list/*.seed
+
+# Android
+/weex-todo-list/android/playground/app/gradlew
+/weex-todo-list/android/playground/app/gradlew.bat
+/weex-todo-list/android/playground/app/gradle/wrapper/gradle-wrapper.jar
+/weex-todo-list/android/playground/app/gradle/wrapper/gradle-wrapper.properties
+#---------------------------------------------------------------------------------------------
